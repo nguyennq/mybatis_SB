@@ -24,6 +24,12 @@ public class Customer {
     String email;
     Date date;
 
+    public Customer() {
+        name = null;
+        email = null;
+        date = null;
+    }
+
     public Long getId() {
         return id;
     }

@@ -15,27 +15,27 @@ import java.util.Date;
 @SpringBootTest
 public class MybatissbdemoApplicationTests {
 
-	@Autowired
-	private CustomerMapper customerMapper;
+//	@Autowired
+//	private CustomerMapper customerMapper;
 
 
-//	@Test
-//	public void contextLoads() {
+	@Test
+	public void contextLoads() {
 //		Customer customer = preparedCustomer();
 //		customerMapper.addCustomer(customer.getId(),customer.getName(),customer.getEmail(),customer.getDate());
-//
-//	}
 
-	private Customer preparedCustomer() {
-		Customer customer = new Customer();
-		customer.setId(1L);
-		customer.setName("John");
-		customer.setEmail("abc@abc.vn");
-		Date now = new Date();
-		Timestamp timestamp = new Timestamp(now.getTime());
-		customer.setDate(timestamp);
-
-		return customer;
 	}
+
+//	private Customer preparedCustomer() {
+//		Customer customer = new Customer();
+//		customer.setId(1L);
+//		customer.setName("John");
+//		customer.setEmail("abc@abc.vn");
+//		Date now = new Date();
+//		Timestamp timestamp = new Timestamp(now.getTime());
+//		customer.setDate(timestamp);
+//
+//		return customer;
+//	}
 
 }

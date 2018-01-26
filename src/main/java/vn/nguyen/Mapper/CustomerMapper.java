@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 import vn.nguyen.domain.Customer;
 
 import java.util.Date;
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by nals on 1/25/18.
@@ -23,7 +21,7 @@ public interface CustomerMapper {
     void deleteByUserId(@Param("id") Long id);
 
     @Update("update CUSTOMER set name=#{name}, email=#{email} where id=#{id}")
-    void updateUser(@Param("id") Integer id, @Param("name") String name, @Param("email") String email);
+    Customer updateUser(@Param("id") Integer id, @Param("name") String name, @Param("email") String email);
 
     @Select("SELECT * FROM CUSTOMER")
     @Results({

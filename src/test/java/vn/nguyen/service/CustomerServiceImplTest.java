@@ -74,7 +74,7 @@ public class CustomerServiceImplTest {
     public void createCustomer_ShouldReturnExceptionWhenInputCustomerIDExist() throws Exception {
         //given
         CustomerRequest customerRequest = preparedCustomerRequest();
-        given(customerMapper.findByCustomerById(1L)).willThrow(new CustomerIDExistException(customerRequest.getId()));
+        given(customerMapper.findByCustomerById(1L)).willReturn(preparedCustomer(1L).getBody());
         //when
         BaseResponse<Customer> customerService = customerServiceImpl.createCustomer(preparedCustomerRequest());
         //then
@@ -95,22 +95,11 @@ public class CustomerServiceImplTest {
         customer.setId(id);
         customer.setName("John");
         customer.setEmail("abc@abc.vn");
-//        Date now = new Date();
-//        Timestamp timestamp = new Timestamp(now.getTime());
-//        customer.setDate(timestamp);
+        Date now = new Date();
+        Timestamp timestamp = new Timestamp(now.getTime());
+        customer.setDate(timestamp);
         return new BaseResponse<>(customer);
     }
 
-
-//    private Customer preparedCustomer() {
-//        Customer customer = new Customer();
-//        customer.setId(1L);
-//        customer.setName("John");
-//        customer.setEmail("abc@abc.vn");
-//        Date now = new Date();
-//        Timestamp timestamp = new Timestamp(now.getTime());
-//        customer.setDate(timestamp);
-//        return customer;
-//    }
 
 }

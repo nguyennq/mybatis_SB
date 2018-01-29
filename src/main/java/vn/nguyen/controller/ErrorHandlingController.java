@@ -34,7 +34,7 @@ public class ErrorHandlingController {
     @Autowired
     private MessageSource messageSource;
 
-    public ErrorResponse procesGlobalException(Exception ex, HttpServletRequest servletRequest){
+    public ErrorResponse processGlobalException(Exception ex, HttpServletRequest servletRequest){
         log.error(ex.getMessage(), ex);
         return createErrorResponse(StatusCode.ERROR_TECHNICAL);
     }

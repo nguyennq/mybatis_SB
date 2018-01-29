@@ -31,7 +31,8 @@ public class CustomerController {
 
     @PostMapping
     public BaseResponse<Customer> createCustomerController(@Valid @RequestBody CustomerRequest customerRequest) throws CustomerIDExistException{
-        return new BaseResponse(customerService.createCustomer(customerRequest));
+//        return new BaseResponse(customerService.createCustomer(customerRequest));
+        return customerService.createCustomer(customerRequest);
     }
 
 }

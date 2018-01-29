@@ -24,14 +24,11 @@ import java.util.Optional;
 public class CustomerServiceImpl implements CustomerService {
 
     private CustomerMapper customerMapper;
-    @Autowired
-    private MessageSource messageSource;
+
     @Autowired
     public CustomerServiceImpl(CustomerMapper customerMapper) {
         this.customerMapper = customerMapper;
     }
-
-
 
     @Override
     public BaseResponse<Customer> createCustomer(CustomerRequest customerRequest) throws CustomerIDExistException{
@@ -47,10 +44,8 @@ public class CustomerServiceImpl implements CustomerService {
             Timestamp timestamp = new Timestamp(now.getTime());
             customerNew.setDate(timestamp);
             customerMapper.addCustomer(customerNew.getId(), customerNew.getName(), customerNew.getEmail(), customerNew.getDate());
-            return new BaseResponse<>();
+            return new BaseResponse<>(customerNew);
         }
-
-
     }
 
     @Override
